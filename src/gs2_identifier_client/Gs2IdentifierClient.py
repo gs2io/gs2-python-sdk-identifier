@@ -391,6 +391,35 @@ class Gs2IdentifierClient(AbstractGs2Client):
 
 
 
+    def get_has_security_policy(self, request):
+        """
+        ユーザが保持しているセキュリティポリシー一覧を取得します<br>
+        <br>
+        :param request: リクエストパラメータ
+        :type request: gs2_identifier_client.control.GetHasSecurityPolicyRequest.GetHasSecurityPolicyRequest
+        :return: 結果
+        :rtype: gs2_identifier_client.control.GetHasSecurityPolicyResult.GetHasSecurityPolicyResult
+        """
+
+        query_strings = {
+
+        }
+        headers = { 
+        }
+        from gs2_identifier_client.control.GetHasSecurityPolicyRequest import GetHasSecurityPolicyRequest
+
+        from gs2_identifier_client.control.GetHasSecurityPolicyResult import GetHasSecurityPolicyResult
+        return GetHasSecurityPolicyResult(self._do_get_request(
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None else request.get_user_name())) + "/securityPolicy",
+            service=self.ENDPOINT,
+            module=GetHasSecurityPolicyRequest.Constant.MODULE,
+            function=GetHasSecurityPolicyRequest.Constant.FUNCTION,
+            query_strings=query_strings,
+            headers=headers
+        ))
+
+
+
     def get_identifier(self, request):
         """
         GSIを取得します。<br>
@@ -472,35 +501,6 @@ class Gs2IdentifierClient(AbstractGs2Client):
             service=self.ENDPOINT,
             module=GetUserRequest.Constant.MODULE,
             function=GetUserRequest.Constant.FUNCTION,
-            query_strings=query_strings,
-            headers=headers
-        ))
-
-
-
-    def has_security_policy(self, request):
-        """
-        ユーザが保持しているセキュリティポリシー一覧を取得します<br>
-        <br>
-        :param request: リクエストパラメータ
-        :type request: gs2_identifier_client.control.HasSecurityPolicyRequest.HasSecurityPolicyRequest
-        :return: 結果
-        :rtype: gs2_identifier_client.control.HasSecurityPolicyResult.HasSecurityPolicyResult
-        """
-
-        query_strings = {
-
-        }
-        headers = { 
-        }
-        from gs2_identifier_client.control.HasSecurityPolicyRequest import HasSecurityPolicyRequest
-
-        from gs2_identifier_client.control.HasSecurityPolicyResult import HasSecurityPolicyResult
-        return HasSecurityPolicyResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None else request.get_user_name())) + "/securityPolicy",
-            service=self.ENDPOINT,
-            module=HasSecurityPolicyRequest.Constant.MODULE,
-            function=HasSecurityPolicyRequest.Constant.FUNCTION,
             query_strings=query_strings,
             headers=headers
         ))

@@ -18,7 +18,7 @@ from gs2_core_client.Gs2BasicRequest import Gs2BasicRequest
 from gs2_identifier_client.Gs2Identifier import Gs2Identifier
 
 
-class HasSecurityPolicyRequest(Gs2BasicRequest):
+class GetHasSecurityPolicyRequest(Gs2BasicRequest):
 
     class Constant(Gs2Identifier):
         FUNCTION = "HasSecurityPolicy"
@@ -29,7 +29,7 @@ class HasSecurityPolicyRequest(Gs2BasicRequest):
         :param params: 辞書配列形式のパラメータ初期値リスト
         :type params: dict|None
         """
-        super(HasSecurityPolicyRequest, self).__init__(params)
+        super(GetHasSecurityPolicyRequest, self).__init__(params)
         if params is None:
             self.__user_name = None
         else:
@@ -57,7 +57,7 @@ class HasSecurityPolicyRequest(Gs2BasicRequest):
         :param user_name: ユーザの名前
         :type user_name: unicode
         :return: this
-        :rtype: HasSecurityPolicyRequest
+        :rtype: GetHasSecurityPolicyRequest
         """
         self.set_user_name(user_name)
         return self

@@ -17,7 +17,7 @@
 from gs2_identifier_client.model import *
 
 
-class HasSecurityPolicyResult(object):
+class GetHasSecurityPolicyResult(object):
 
     def __init__(self, response):
         """
