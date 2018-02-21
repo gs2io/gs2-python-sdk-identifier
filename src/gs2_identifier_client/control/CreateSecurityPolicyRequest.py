@@ -31,38 +31,11 @@ class CreateSecurityPolicyRequest(Gs2BasicRequest):
         """
         super(CreateSecurityPolicyRequest, self).__init__(params)
         if params is None:
-            self.__policy = None
             self.__name = None
+            self.__policy = None
         else:
-            self.set_policy(params['policy'] if 'policy' in params.keys() else None)
             self.set_name(params['name'] if 'name' in params.keys() else None)
-
-    def get_policy(self):
-        """
-        ポリシードキュメントを取得
-        :return: ポリシードキュメント
-        :rtype: unicode
-        """
-        return self.__policy
-
-    def set_policy(self, policy):
-        """
-        ポリシードキュメントを設定
-        :param policy: ポリシードキュメント
-        :type policy: unicode
-        """
-        self.__policy = policy
-
-    def with_policy(self, policy):
-        """
-        ポリシードキュメントを設定
-        :param policy: ポリシードキュメント
-        :type policy: unicode
-        :return: this
-        :rtype: CreateSecurityPolicyRequest
-        """
-        self.set_policy(policy)
-        return self
+            self.set_policy(params['policy'] if 'policy' in params.keys() else None)
 
     def get_name(self):
         """
@@ -89,4 +62,31 @@ class CreateSecurityPolicyRequest(Gs2BasicRequest):
         :rtype: CreateSecurityPolicyRequest
         """
         self.set_name(name)
+        return self
+
+    def get_policy(self):
+        """
+        ポリシードキュメントを取得
+        :return: ポリシードキュメント
+        :rtype: unicode
+        """
+        return self.__policy
+
+    def set_policy(self, policy):
+        """
+        ポリシードキュメントを設定
+        :param policy: ポリシードキュメント
+        :type policy: unicode
+        """
+        self.__policy = policy
+
+    def with_policy(self, policy):
+        """
+        ポリシードキュメントを設定
+        :param policy: ポリシードキュメント
+        :type policy: unicode
+        :return: this
+        :rtype: CreateSecurityPolicyRequest
+        """
+        self.set_policy(policy)
         return self
