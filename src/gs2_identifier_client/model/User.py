@@ -14,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class User(object):
 
     def __init__(self, params=None):
@@ -27,7 +28,6 @@ class User(object):
             self.set_owner_id(params['ownerId'] if 'ownerId' in params.keys() else None)
             self.set_name(params['name'] if 'name' in params.keys() else None)
             self.set_create_at(params['createAt'] if 'createAt' in params.keys() else None)
-
 
     def get_user_id(self):
         """
@@ -94,7 +94,7 @@ class User(object):
         self.__create_at = create_at
 
     def to_dict(self):
-        return { 
+        return {
             "userId": self.__user_id,
             "ownerId": self.__owner_id,
             "name": self.__name,

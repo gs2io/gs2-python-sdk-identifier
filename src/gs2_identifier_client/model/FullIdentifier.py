@@ -14,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class FullIdentifier(object):
 
     def __init__(self, params=None):
@@ -31,7 +32,6 @@ class FullIdentifier(object):
             self.set_client_id(params['clientId'] if 'clientId' in params.keys() else None)
             self.set_client_secret(params['clientSecret'] if 'clientSecret' in params.keys() else None)
             self.set_create_at(params['createAt'] if 'createAt' in params.keys() else None)
-
 
     def get_identifier_id(self):
         """
@@ -130,7 +130,7 @@ class FullIdentifier(object):
         self.__create_at = create_at
 
     def to_dict(self):
-        return { 
+        return {
             "identifierId": self.__identifier_id,
             "ownerId": self.__owner_id,
             "userId": self.__user_id,

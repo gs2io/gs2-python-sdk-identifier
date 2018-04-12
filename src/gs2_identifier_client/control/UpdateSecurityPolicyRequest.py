@@ -32,9 +32,11 @@ class UpdateSecurityPolicyRequest(Gs2BasicRequest):
         super(UpdateSecurityPolicyRequest, self).__init__(params)
         if params is None:
             self.__security_policy_name = None
-            self.__policy = None
         else:
             self.set_security_policy_name(params['securityPolicyName'] if 'securityPolicyName' in params.keys() else None)
+        if params is None:
+            self.__policy = None
+        else:
             self.set_policy(params['policy'] if 'policy' in params.keys() else None)
 
     def get_security_policy_name(self):
@@ -51,6 +53,8 @@ class UpdateSecurityPolicyRequest(Gs2BasicRequest):
         :param security_policy_name: セキュリティポリシーの名前を指定します。
         :type security_policy_name: unicode
         """
+        if not isinstance(security_policy_name, unicode):
+            raise TypeError(type(security_policy_name))
         self.__security_policy_name = security_policy_name
 
     def with_security_policy_name(self, security_policy_name):
@@ -78,6 +82,8 @@ class UpdateSecurityPolicyRequest(Gs2BasicRequest):
         :param policy: ポリシードキュメント
         :type policy: unicode
         """
+        if not isinstance(policy, unicode):
+            raise TypeError(type(policy))
         self.__policy = policy
 
     def with_policy(self, policy):

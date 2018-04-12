@@ -32,9 +32,11 @@ class DetachSecurityPolicyRequest(Gs2BasicRequest):
         super(DetachSecurityPolicyRequest, self).__init__(params)
         if params is None:
             self.__user_name = None
-            self.__security_policy_id = None
         else:
             self.set_user_name(params['userName'] if 'userName' in params.keys() else None)
+        if params is None:
+            self.__security_policy_id = None
+        else:
             self.set_security_policy_id(params['securityPolicyId'] if 'securityPolicyId' in params.keys() else None)
 
     def get_user_name(self):
@@ -51,6 +53,8 @@ class DetachSecurityPolicyRequest(Gs2BasicRequest):
         :param user_name: ユーザの名前
         :type user_name: unicode
         """
+        if not isinstance(user_name, unicode):
+            raise TypeError(type(user_name))
         self.__user_name = user_name
 
     def with_user_name(self, user_name):
@@ -78,6 +82,8 @@ class DetachSecurityPolicyRequest(Gs2BasicRequest):
         :param security_policy_id: セキュリティポリシーGRN
         :type security_policy_id: unicode
         """
+        if not isinstance(security_policy_id, unicode):
+            raise TypeError(type(security_policy_id))
         self.__security_policy_id = security_policy_id
 
     def with_security_policy_id(self, security_policy_id):

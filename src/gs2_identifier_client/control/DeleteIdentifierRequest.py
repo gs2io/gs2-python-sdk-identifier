@@ -32,9 +32,11 @@ class DeleteIdentifierRequest(Gs2BasicRequest):
         super(DeleteIdentifierRequest, self).__init__(params)
         if params is None:
             self.__user_name = None
-            self.__identifier_id = None
         else:
             self.set_user_name(params['userName'] if 'userName' in params.keys() else None)
+        if params is None:
+            self.__identifier_id = None
+        else:
             self.set_identifier_id(params['identifierId'] if 'identifierId' in params.keys() else None)
 
     def get_user_name(self):
@@ -51,6 +53,8 @@ class DeleteIdentifierRequest(Gs2BasicRequest):
         :param user_name: ユーザの名前
         :type user_name: unicode
         """
+        if not isinstance(user_name, unicode):
+            raise TypeError(type(user_name))
         self.__user_name = user_name
 
     def with_user_name(self, user_name):
@@ -78,6 +82,8 @@ class DeleteIdentifierRequest(Gs2BasicRequest):
         :param identifier_id: GSIのGRN
         :type identifier_id: unicode
         """
+        if not isinstance(identifier_id, unicode):
+            raise TypeError(type(identifier_id))
         self.__identifier_id = identifier_id
 
     def with_identifier_id(self, identifier_id):

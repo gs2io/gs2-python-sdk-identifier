@@ -49,6 +49,8 @@ class DeleteSecurityPolicyRequest(Gs2BasicRequest):
         :param security_policy_name: セキュリティポリシーの名前を指定します。
         :type security_policy_name: unicode
         """
+        if not isinstance(security_policy_name, unicode):
+            raise TypeError(type(security_policy_name))
         self.__security_policy_name = security_policy_name
 
     def with_security_policy_name(self, security_policy_name):

@@ -32,9 +32,11 @@ class CreateSecurityPolicyRequest(Gs2BasicRequest):
         super(CreateSecurityPolicyRequest, self).__init__(params)
         if params is None:
             self.__name = None
-            self.__policy = None
         else:
             self.set_name(params['name'] if 'name' in params.keys() else None)
+        if params is None:
+            self.__policy = None
+        else:
             self.set_policy(params['policy'] if 'policy' in params.keys() else None)
 
     def get_name(self):
@@ -51,6 +53,8 @@ class CreateSecurityPolicyRequest(Gs2BasicRequest):
         :param name: 名前
         :type name: unicode
         """
+        if not isinstance(name, unicode):
+            raise TypeError(type(name))
         self.__name = name
 
     def with_name(self, name):
@@ -78,6 +82,8 @@ class CreateSecurityPolicyRequest(Gs2BasicRequest):
         :param policy: ポリシードキュメント
         :type policy: unicode
         """
+        if not isinstance(policy, unicode):
+            raise TypeError(type(policy))
         self.__policy = policy
 
     def with_policy(self, policy):

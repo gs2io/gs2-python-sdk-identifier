@@ -49,6 +49,8 @@ class GetUserRequest(Gs2BasicRequest):
         :param user_name: ユーザの名前
         :type user_name: unicode
         """
+        if not isinstance(user_name, unicode):
+            raise TypeError(type(user_name))
         self.__user_name = user_name
 
     def with_user_name(self, user_name):
