@@ -57,7 +57,7 @@ class DescribeIdentifierRequest(Gs2BasicRequest):
         :param user_name: ユーザの名前
         :type user_name: unicode
         """
-        if not isinstance(user_name, unicode):
+        if user_name and not isinstance(user_name, unicode):
             raise TypeError(type(user_name))
         self.__user_name = user_name
 
@@ -86,7 +86,7 @@ class DescribeIdentifierRequest(Gs2BasicRequest):
         :param page_token: データの取得を開始する位置を指定するトークン
         :type page_token: unicode
         """
-        if not isinstance(page_token, unicode):
+        if page_token and not isinstance(page_token, unicode):
             raise TypeError(type(page_token))
         self.__page_token = page_token
 
@@ -115,7 +115,7 @@ class DescribeIdentifierRequest(Gs2BasicRequest):
         :param limit: データの取得件数
         :type limit: int
         """
-        if not isinstance(limit, int):
+        if limit and not isinstance(limit, int):
             raise TypeError(type(limit))
         self.__limit = limit
 

@@ -53,7 +53,7 @@ class DetachSecurityPolicyRequest(Gs2BasicRequest):
         :param user_name: ユーザの名前
         :type user_name: unicode
         """
-        if not isinstance(user_name, unicode):
+        if user_name and not isinstance(user_name, unicode):
             raise TypeError(type(user_name))
         self.__user_name = user_name
 
@@ -82,7 +82,7 @@ class DetachSecurityPolicyRequest(Gs2BasicRequest):
         :param security_policy_id: セキュリティポリシーGRN
         :type security_policy_id: unicode
         """
-        if not isinstance(security_policy_id, unicode):
+        if security_policy_id and not isinstance(security_policy_id, unicode):
             raise TypeError(type(security_policy_id))
         self.__security_policy_id = security_policy_id
 
