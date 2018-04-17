@@ -49,7 +49,7 @@ class CreateUserRequest(Gs2BasicRequest):
         :param name: ユーザの名前
         :type name: unicode
         """
-        if name and not isinstance(name, unicode):
+        if name and not (isinstance(name, str) or isinstance(name, unicode)):
             raise TypeError(type(name))
         self.__name = name
 

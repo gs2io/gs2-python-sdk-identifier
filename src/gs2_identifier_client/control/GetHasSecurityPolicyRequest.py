@@ -49,7 +49,7 @@ class GetHasSecurityPolicyRequest(Gs2BasicRequest):
         :param user_name: ユーザの名前
         :type user_name: unicode
         """
-        if user_name and not isinstance(user_name, unicode):
+        if user_name and not (isinstance(user_name, str) or isinstance(user_name, unicode)):
             raise TypeError(type(user_name))
         self.__user_name = user_name
 
