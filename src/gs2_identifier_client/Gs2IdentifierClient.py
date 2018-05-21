@@ -16,6 +16,7 @@
 
 from gs2_core_client.Gs2Constant import Gs2Constant
 from gs2_core_client.AbstractGs2Client import AbstractGs2Client
+from aws_sdk_for_serverless.common import url_encoder
 
 
 class Gs2IdentifierClient(AbstractGs2Client):
@@ -51,7 +52,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
         from gs2_identifier_client.control.CreateIdentifierRequest import CreateIdentifierRequest
         from gs2_identifier_client.control.CreateIdentifierResult import CreateIdentifierResult
         return CreateIdentifierResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/identifier",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/identifier",
             service=self.ENDPOINT,
             component=CreateIdentifierRequest.Constant.MODULE,
             target_function=CreateIdentifierRequest.Constant.FUNCTION,
@@ -73,7 +74,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DeleteIdentifierRequest import DeleteIdentifierRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/identifier/" + str(("null" if request.get_identifier_id() is None or request.get_identifier_id() == "" else request.get_identifier_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/identifier/" + str(("null" if request.get_identifier_id() is None or request.get_identifier_id() == "" else url_encoder.encode(request.get_identifier_id()))) + "",
             service=self.ENDPOINT,
             component=DeleteIdentifierRequest.Constant.MODULE,
             target_function=DeleteIdentifierRequest.Constant.FUNCTION,
@@ -101,7 +102,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
 
         from gs2_identifier_client.control.DescribeIdentifierResult import DescribeIdentifierResult
         return DescribeIdentifierResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/identifier",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/identifier",
             service=self.ENDPOINT,
             component=DescribeIdentifierRequest.Constant.MODULE,
             target_function=DescribeIdentifierRequest.Constant.FUNCTION,
@@ -127,7 +128,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
 
         from gs2_identifier_client.control.GetIdentifierResult import GetIdentifierResult
         return GetIdentifierResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/identifier/" + str(("null" if request.get_identifier_id() is None or request.get_identifier_id() == "" else request.get_identifier_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/identifier/" + str(("null" if request.get_identifier_id() is None or request.get_identifier_id() == "" else url_encoder.encode(request.get_identifier_id()))) + "",
             service=self.ENDPOINT,
             component=GetIdentifierRequest.Constant.MODULE,
             target_function=GetIdentifierRequest.Constant.FUNCTION,
@@ -178,7 +179,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DeleteSecurityPolicyRequest import DeleteSecurityPolicyRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else request.get_security_policy_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else url_encoder.encode(request.get_security_policy_name()))) + "",
             service=self.ENDPOINT,
             component=DeleteSecurityPolicyRequest.Constant.MODULE,
             target_function=DeleteSecurityPolicyRequest.Constant.FUNCTION,
@@ -260,7 +261,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
 
         from gs2_identifier_client.control.GetSecurityPolicyResult import GetSecurityPolicyResult
         return GetSecurityPolicyResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else request.get_security_policy_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else url_encoder.encode(request.get_security_policy_name()))) + "",
             service=self.ENDPOINT,
             component=GetSecurityPolicyRequest.Constant.MODULE,
             target_function=GetSecurityPolicyRequest.Constant.FUNCTION,
@@ -287,7 +288,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
         from gs2_identifier_client.control.UpdateSecurityPolicyRequest import UpdateSecurityPolicyRequest
         from gs2_identifier_client.control.UpdateSecurityPolicyResult import UpdateSecurityPolicyResult
         return UpdateSecurityPolicyResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else request.get_security_policy_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else url_encoder.encode(request.get_security_policy_name()))) + "",
             service=self.ENDPOINT,
             component=UpdateSecurityPolicyRequest.Constant.MODULE,
             target_function=UpdateSecurityPolicyRequest.Constant.FUNCTION,
@@ -311,7 +312,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.AttachSecurityPolicyRequest import AttachSecurityPolicyRequest
         self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/securityPolicy",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/securityPolicy",
             service=self.ENDPOINT,
             component=AttachSecurityPolicyRequest.Constant.MODULE,
             target_function=AttachSecurityPolicyRequest.Constant.FUNCTION,
@@ -361,7 +362,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DeleteUserRequest import DeleteUserRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "",
             service=self.ENDPOINT,
             component=DeleteUserRequest.Constant.MODULE,
             target_function=DeleteUserRequest.Constant.FUNCTION,
@@ -411,7 +412,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DetachSecurityPolicyRequest import DetachSecurityPolicyRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/securityPolicy/" + str(("null" if request.get_security_policy_id() is None or request.get_security_policy_id() == "" else request.get_security_policy_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/securityPolicy/" + str(("null" if request.get_security_policy_id() is None or request.get_security_policy_id() == "" else url_encoder.encode(request.get_security_policy_id()))) + "",
             service=self.ENDPOINT,
             component=DetachSecurityPolicyRequest.Constant.MODULE,
             target_function=DetachSecurityPolicyRequest.Constant.FUNCTION,
@@ -437,7 +438,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
 
         from gs2_identifier_client.control.GetHasSecurityPolicyResult import GetHasSecurityPolicyResult
         return GetHasSecurityPolicyResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/securityPolicy",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/securityPolicy",
             service=self.ENDPOINT,
             component=GetHasSecurityPolicyRequest.Constant.MODULE,
             target_function=GetHasSecurityPolicyRequest.Constant.FUNCTION,
@@ -463,7 +464,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
 
         from gs2_identifier_client.control.GetUserResult import GetUserResult
         return GetUserResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "",
             service=self.ENDPOINT,
             component=GetUserRequest.Constant.MODULE,
             target_function=GetUserRequest.Constant.FUNCTION,
