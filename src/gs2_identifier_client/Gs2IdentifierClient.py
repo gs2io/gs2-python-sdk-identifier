@@ -45,14 +45,13 @@ class Gs2IdentifierClient(AbstractGs2Client):
         body = { 
         }
 
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.CreateIdentifierRequest import CreateIdentifierRequest
         from gs2_identifier_client.control.CreateIdentifierResult import CreateIdentifierResult
         return CreateIdentifierResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/identifier",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/identifier",
             service=self.ENDPOINT,
             component=CreateIdentifierRequest.Constant.MODULE,
             target_function=CreateIdentifierRequest.Constant.FUNCTION,
@@ -68,13 +67,12 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :type request: gs2_identifier_client.control.DeleteIdentifierRequest.DeleteIdentifierRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DeleteIdentifierRequest import DeleteIdentifierRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/identifier/" + str(("null" if request.get_identifier_id() is None or request.get_identifier_id() == "" else url_encoder.encode(request.get_identifier_id()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/identifier/" + str(("null" if request.get_identifier_id() is None or request.get_identifier_id() == "" else request.get_identifier_id())) + "",
             service=self.ENDPOINT,
             component=DeleteIdentifierRequest.Constant.MODULE,
             target_function=DeleteIdentifierRequest.Constant.FUNCTION,
@@ -90,19 +88,19 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_identifier_client.control.DescribeIdentifierResult.DescribeIdentifierResult
         """
-        query_strings = {
-            'pageToken': request.get_page_token(),
-            'limit': request.get_limit(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_page_token() is not None:
+            query_strings['pageToken'] = request.get_page_token()
+        if request.get_limit() is not None:
+            query_strings['limit'] = request.get_limit()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DescribeIdentifierRequest import DescribeIdentifierRequest
 
         from gs2_identifier_client.control.DescribeIdentifierResult import DescribeIdentifierResult
         return DescribeIdentifierResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/identifier",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/identifier",
             service=self.ENDPOINT,
             component=DescribeIdentifierRequest.Constant.MODULE,
             target_function=DescribeIdentifierRequest.Constant.FUNCTION,
@@ -118,17 +116,15 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_identifier_client.control.GetIdentifierResult.GetIdentifierResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.GetIdentifierRequest import GetIdentifierRequest
 
         from gs2_identifier_client.control.GetIdentifierResult import GetIdentifierResult
         return GetIdentifierResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/identifier/" + str(("null" if request.get_identifier_id() is None or request.get_identifier_id() == "" else url_encoder.encode(request.get_identifier_id()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/identifier/" + str(("null" if request.get_identifier_id() is None or request.get_identifier_id() == "" else request.get_identifier_id())) + "",
             service=self.ENDPOINT,
             component=GetIdentifierRequest.Constant.MODULE,
             target_function=GetIdentifierRequest.Constant.FUNCTION,
@@ -150,8 +146,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
             "policy": request.get_policy(),
         }
 
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.CreateSecurityPolicyRequest import CreateSecurityPolicyRequest
@@ -173,13 +168,12 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :type request: gs2_identifier_client.control.DeleteSecurityPolicyRequest.DeleteSecurityPolicyRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DeleteSecurityPolicyRequest import DeleteSecurityPolicyRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else url_encoder.encode(request.get_security_policy_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else request.get_security_policy_name())) + "",
             service=self.ENDPOINT,
             component=DeleteSecurityPolicyRequest.Constant.MODULE,
             target_function=DeleteSecurityPolicyRequest.Constant.FUNCTION,
@@ -195,12 +189,12 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_identifier_client.control.DescribeCommonSecurityPolicyResult.DescribeCommonSecurityPolicyResult
         """
-        query_strings = {
-            'pageToken': request.get_page_token(),
-            'limit': request.get_limit(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_page_token() is not None:
+            query_strings['pageToken'] = request.get_page_token()
+        if request.get_limit() is not None:
+            query_strings['limit'] = request.get_limit()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DescribeCommonSecurityPolicyRequest import DescribeCommonSecurityPolicyRequest
@@ -223,12 +217,12 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_identifier_client.control.DescribeSecurityPolicyResult.DescribeSecurityPolicyResult
         """
-        query_strings = {
-            'pageToken': request.get_page_token(),
-            'limit': request.get_limit(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_page_token() is not None:
+            query_strings['pageToken'] = request.get_page_token()
+        if request.get_limit() is not None:
+            query_strings['limit'] = request.get_limit()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DescribeSecurityPolicyRequest import DescribeSecurityPolicyRequest
@@ -251,17 +245,15 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_identifier_client.control.GetSecurityPolicyResult.GetSecurityPolicyResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.GetSecurityPolicyRequest import GetSecurityPolicyRequest
 
         from gs2_identifier_client.control.GetSecurityPolicyResult import GetSecurityPolicyResult
         return GetSecurityPolicyResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else url_encoder.encode(request.get_security_policy_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else request.get_security_policy_name())) + "",
             service=self.ENDPOINT,
             component=GetSecurityPolicyRequest.Constant.MODULE,
             target_function=GetSecurityPolicyRequest.Constant.FUNCTION,
@@ -281,14 +273,13 @@ class Gs2IdentifierClient(AbstractGs2Client):
         body = { 
             "policy": request.get_policy(),
         }
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.UpdateSecurityPolicyRequest import UpdateSecurityPolicyRequest
         from gs2_identifier_client.control.UpdateSecurityPolicyResult import UpdateSecurityPolicyResult
         return UpdateSecurityPolicyResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else url_encoder.encode(request.get_security_policy_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/securityPolicy/" + str(("null" if request.get_security_policy_name() is None or request.get_security_policy_name() == "" else request.get_security_policy_name())) + "",
             service=self.ENDPOINT,
             component=UpdateSecurityPolicyRequest.Constant.MODULE,
             target_function=UpdateSecurityPolicyRequest.Constant.FUNCTION,
@@ -306,13 +297,12 @@ class Gs2IdentifierClient(AbstractGs2Client):
         body = { 
             "securityPolicyId": request.get_security_policy_id(),
         }
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.AttachSecurityPolicyRequest import AttachSecurityPolicyRequest
         self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/securityPolicy",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/securityPolicy",
             service=self.ENDPOINT,
             component=AttachSecurityPolicyRequest.Constant.MODULE,
             target_function=AttachSecurityPolicyRequest.Constant.FUNCTION,
@@ -333,8 +323,7 @@ class Gs2IdentifierClient(AbstractGs2Client):
             "name": request.get_name(),
         }
 
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.CreateUserRequest import CreateUserRequest
@@ -356,13 +345,12 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :type request: gs2_identifier_client.control.DeleteUserRequest.DeleteUserRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DeleteUserRequest import DeleteUserRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "",
             service=self.ENDPOINT,
             component=DeleteUserRequest.Constant.MODULE,
             target_function=DeleteUserRequest.Constant.FUNCTION,
@@ -378,12 +366,12 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_identifier_client.control.DescribeUserResult.DescribeUserResult
         """
-        query_strings = {
-            'pageToken': request.get_page_token(),
-            'limit': request.get_limit(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_page_token() is not None:
+            query_strings['pageToken'] = request.get_page_token()
+        if request.get_limit() is not None:
+            query_strings['limit'] = request.get_limit()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DescribeUserRequest import DescribeUserRequest
@@ -406,13 +394,12 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :type request: gs2_identifier_client.control.DetachSecurityPolicyRequest.DetachSecurityPolicyRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.DetachSecurityPolicyRequest import DetachSecurityPolicyRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/securityPolicy/" + str(("null" if request.get_security_policy_id() is None or request.get_security_policy_id() == "" else url_encoder.encode(request.get_security_policy_id()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/securityPolicy/" + str(("null" if request.get_security_policy_id() is None or request.get_security_policy_id() == "" else request.get_security_policy_id())) + "",
             service=self.ENDPOINT,
             component=DetachSecurityPolicyRequest.Constant.MODULE,
             target_function=DetachSecurityPolicyRequest.Constant.FUNCTION,
@@ -428,17 +415,15 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_identifier_client.control.GetHasSecurityPolicyResult.GetHasSecurityPolicyResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.GetHasSecurityPolicyRequest import GetHasSecurityPolicyRequest
 
         from gs2_identifier_client.control.GetHasSecurityPolicyResult import GetHasSecurityPolicyResult
         return GetHasSecurityPolicyResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "/securityPolicy",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "/securityPolicy",
             service=self.ENDPOINT,
             component=GetHasSecurityPolicyRequest.Constant.MODULE,
             target_function=GetHasSecurityPolicyRequest.Constant.FUNCTION,
@@ -454,17 +439,15 @@ class Gs2IdentifierClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_identifier_client.control.GetUserResult.GetUserResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_identifier_client.control.GetUserRequest import GetUserRequest
 
         from gs2_identifier_client.control.GetUserResult import GetUserResult
         return GetUserResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else url_encoder.encode(request.get_user_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/user/" + str(("null" if request.get_user_name() is None or request.get_user_name() == "" else request.get_user_name())) + "",
             service=self.ENDPOINT,
             component=GetUserRequest.Constant.MODULE,
             target_function=GetUserRequest.Constant.FUNCTION,

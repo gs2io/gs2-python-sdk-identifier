@@ -53,7 +53,7 @@ class UpdateSecurityPolicyRequest(Gs2BasicRequest):
         :param security_policy_name: セキュリティポリシーの名前を指定します。
         :type security_policy_name: unicode
         """
-        if security_policy_name and not (isinstance(security_policy_name, str) or isinstance(security_policy_name, unicode)):
+        if security_policy_name is not None and not (isinstance(security_policy_name, str) or isinstance(security_policy_name, unicode)):
             raise TypeError(type(security_policy_name))
         self.__security_policy_name = security_policy_name
 
@@ -82,7 +82,7 @@ class UpdateSecurityPolicyRequest(Gs2BasicRequest):
         :param policy: ポリシードキュメント
         :type policy: unicode
         """
-        if policy and not (isinstance(policy, str) or isinstance(policy, unicode)):
+        if policy is not None and not (isinstance(policy, str) or isinstance(policy, unicode)):
             raise TypeError(type(policy))
         self.__policy = policy
 

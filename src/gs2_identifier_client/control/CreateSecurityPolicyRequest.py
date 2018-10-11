@@ -53,7 +53,7 @@ class CreateSecurityPolicyRequest(Gs2BasicRequest):
         :param name: 名前
         :type name: unicode
         """
-        if name and not (isinstance(name, str) or isinstance(name, unicode)):
+        if name is not None and not (isinstance(name, str) or isinstance(name, unicode)):
             raise TypeError(type(name))
         self.__name = name
 
@@ -82,7 +82,7 @@ class CreateSecurityPolicyRequest(Gs2BasicRequest):
         :param policy: ポリシードキュメント
         :type policy: unicode
         """
-        if policy and not (isinstance(policy, str) or isinstance(policy, unicode)):
+        if policy is not None and not (isinstance(policy, str) or isinstance(policy, unicode)):
             raise TypeError(type(policy))
         self.__policy = policy
 

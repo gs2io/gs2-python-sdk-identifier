@@ -53,7 +53,7 @@ class GetIdentifierRequest(Gs2BasicRequest):
         :param user_name: ユーザの名前
         :type user_name: unicode
         """
-        if user_name and not (isinstance(user_name, str) or isinstance(user_name, unicode)):
+        if user_name is not None and not (isinstance(user_name, str) or isinstance(user_name, unicode)):
             raise TypeError(type(user_name))
         self.__user_name = user_name
 
@@ -82,7 +82,7 @@ class GetIdentifierRequest(Gs2BasicRequest):
         :param identifier_id: GSIのGRN
         :type identifier_id: unicode
         """
-        if identifier_id and not (isinstance(identifier_id, str) or isinstance(identifier_id, unicode)):
+        if identifier_id is not None and not (isinstance(identifier_id, str) or isinstance(identifier_id, unicode)):
             raise TypeError(type(identifier_id))
         self.__identifier_id = identifier_id
 

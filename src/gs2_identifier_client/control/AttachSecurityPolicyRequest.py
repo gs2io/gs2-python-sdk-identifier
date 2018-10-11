@@ -53,7 +53,7 @@ class AttachSecurityPolicyRequest(Gs2BasicRequest):
         :param user_name: ユーザの名前を指定します。
         :type user_name: unicode
         """
-        if user_name and not (isinstance(user_name, str) or isinstance(user_name, unicode)):
+        if user_name is not None and not (isinstance(user_name, str) or isinstance(user_name, unicode)):
             raise TypeError(type(user_name))
         self.__user_name = user_name
 
@@ -82,7 +82,7 @@ class AttachSecurityPolicyRequest(Gs2BasicRequest):
         :param security_policy_id: セキュリティポリシーのGRN
         :type security_policy_id: unicode
         """
-        if security_policy_id and not (isinstance(security_policy_id, str) or isinstance(security_policy_id, unicode)):
+        if security_policy_id is not None and not (isinstance(security_policy_id, str) or isinstance(security_policy_id, unicode)):
             raise TypeError(type(security_policy_id))
         self.__security_policy_id = security_policy_id
 
